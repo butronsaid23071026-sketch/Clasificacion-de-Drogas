@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Formulario de Evaluación</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        text-align: justify;
+        color: #003366;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 40px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        text-align: justify;
+    }
+
+    h2 {
+        text-align: center;
+        color: #002244;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 15px;
+        color: #003366;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #7a9bbd;
+        border-radius: 5px;
+        color: #003366;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 90px;
+    }
+
+    button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 12px;
+        background: #0066cc;
+        border: none;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #004c99;
+    }
+
+    #mensajeGracias {
+        display: none;
+        text-align: center;
+        margin-top: 25px;
+        padding: 15px;
+        background: #e0f2ff;
+        border: 1px solid #7a9bbd;
+        border-radius: 5px;
+        color: #003366;
+        font-size: 18px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Evaluación de la Página Web</h2>
+
+  
+   <form id="formulario" action="https://formspree.io/f/xldqlnay" method="POST">
+
+        <!-- Evita CAPTCHA y errores -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
+
+        <label>Correo electrónico:</label>
+        <input type="email" name="email" required>
+
+        <label>¿Qué tan satisfecho estás con la página?</label>
+        <select name="satisfaccion">
+            <option value="Excelente">Excelente</option>
+            <option value="Bueno">Bueno</option>
+            <option value="Regular">Regular</option>
+            <option value="Malo">Malo</option>
+        </select>
+
+        <label>¿El contenido fue útil?</label>
+        <select name="utilidad">
+            <option value="Sí, totalmente">Sí, totalmente</option>
+            <option value="En parte">En parte</option>
+            <option value="No mucho">No mucho</option>
+            <option value="No fue útil">No fue útil</option>
+        </select>
+
+        <label>¿Encontraste la información que buscabas?</label>
+        <select name="informacion">
+            <option value="Sí">Sí</option>
+            <option value="Parcialmente">Parcialmente</option>
+            <option value="No">No</option>
+        </select>
+
+        <label>¿Recomendarías esta página?</label>
+        <select name="recomendacion">
+            <option value="Sí">Sí</option>
+            <option value="Tal vez">Tal vez</option>
+            <option value="No">No</option>
+        </select>
+
+        <label>Comentarios adicionales:</label>
+        <textarea name="comentarios"></textarea>
+
+        <button type="submit">Enviar Evaluación</button>
+    </form>
+
+    <div id="mensajeGracias">
+        ¡Gracias por enviar tu evaluación! ✔
+    </div>
+</div>
+
+<script>
+document.getElementById("formulario").addEventListener("submit", function(e) {
+    setTimeout(() => {
+        document.getElementById("mensajeGracias").style.display = "block";
+        this.reset();
+    }, 500);
+});
+</script>
+
+</body>
+</html>
